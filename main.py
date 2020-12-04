@@ -1,76 +1,170 @@
-class CalculateDifferences():
+from PyQt5 import QtCore, QtGui, QtWidgets
+from calculateDifference import CalculateDifferences
+import sys
 
-    def __init__(self, word1, word2):
-        self.word1 = word1
-        self.word2 = word2
-        self.word1_length = len(self.word1)
-        self.word2_length = len(self.word2)
+class Ui_MainWindow(object):
+    def setupUi(self, MainWindow):
+        MainWindow.setObjectName("MainWindow")
+        MainWindow.setEnabled(True)
+        MainWindow.resize(1024, 480)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
+        MainWindow.setSizePolicy(sizePolicy)
+        MainWindow.setMaximumSize(QtCore.QSize(1024, 480))
+        self.centralwidget = QtWidgets.QWidget(MainWindow)
+        self.centralwidget.setObjectName("centralwidget")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.centralwidget)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        self.horizontalLayout = QtWidgets.QHBoxLayout()
+        self.horizontalLayout.setObjectName("horizontalLayout")
+        self.verticalLayout_2 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_2.setObjectName("verticalLayout_2")
+        self.label_2 = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_2.setFont(font)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout_2.addWidget(self.label_2)
+        self.wordFormationListWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.wordFormationListWidget.setObjectName("wordFormationListWidget")
+        self.verticalLayout_2.addWidget(self.wordFormationListWidget)
+        self.horizontalLayout.addLayout(self.verticalLayout_2)
+        self.verticalLayout_5 = QtWidgets.QVBoxLayout()
+        self.verticalLayout_5.setObjectName("verticalLayout_5")
+        self.label_3 = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_3.setFont(font)
+        self.label_3.setObjectName("label_3")
+        self.verticalLayout_5.addWidget(self.label_3)
+        self.wordFormationActionListWidget = QtWidgets.QListWidget(self.centralwidget)
+        self.wordFormationActionListWidget.setObjectName("wordFormationActionListWidget")
+        self.verticalLayout_5.addWidget(self.wordFormationActionListWidget)
+        self.horizontalLayout.addLayout(self.verticalLayout_5)
+        self.horizontalLayout_2.addLayout(self.horizontalLayout)
+        self.verticalLayout = QtWidgets.QVBoxLayout()
+        self.verticalLayout.setObjectName("verticalLayout")
+        spacerItem = QtWidgets.QSpacerItem(10, 20, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout.addItem(spacerItem)
+        self.label = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label.setFont(font)
+        self.label.setObjectName("label")
+        self.verticalLayout.addWidget(self.label)
+        self.wordTextBox = QtWidgets.QLineEdit(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.wordTextBox.sizePolicy().hasHeightForWidth())
+        self.wordTextBox.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.wordTextBox.setFont(font)
+        self.wordTextBox.setObjectName("wordTextBox")
+        self.verticalLayout.addWidget(self.wordTextBox)
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.label_4.setFont(font)
+        self.label_4.setObjectName("label_4")
+        self.verticalLayout.addWidget(self.label_4)
+        self.wordConvertedTextBox = QtWidgets.QLineEdit(self.centralwidget)
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Preferred, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.wordConvertedTextBox.sizePolicy().hasHeightForWidth())
+        self.wordConvertedTextBox.setSizePolicy(sizePolicy)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.wordConvertedTextBox.setFont(font)
+        self.wordConvertedTextBox.setObjectName("wordConvertedTextBox")
+        self.verticalLayout.addWidget(self.wordConvertedTextBox)
+        spacerItem1 = QtWidgets.QSpacerItem(20, 10, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout.addItem(spacerItem1)
+        self.calculateButton = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.calculateButton.setFont(font)
+        self.calculateButton.setObjectName("calculateButton")
+        self.verticalLayout.addWidget(self.calculateButton)
+        spacerItem2 = QtWidgets.QSpacerItem(20, 5, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Fixed)
+        self.verticalLayout.addItem(spacerItem2)
+        self.clearButton = QtWidgets.QPushButton(self.centralwidget)
+        font = QtGui.QFont()
+        font.setPointSize(10)
+        self.clearButton.setFont(font)
+        self.clearButton.setObjectName("clearButton")
+        self.verticalLayout.addWidget(self.clearButton)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Expanding)
+        self.verticalLayout.addItem(spacerItem3)
+        self.horizontalLayout_2.addLayout(self.verticalLayout)
+        MainWindow.setCentralWidget(self.centralwidget)
+        self.menubar = QtWidgets.QMenuBar(MainWindow)
+        self.menubar.setGeometry(QtCore.QRect(0, 0, 1024, 21))
+        self.menubar.setObjectName("menubar")
+        MainWindow.setMenuBar(self.menubar)
+        self.statusbar = QtWidgets.QStatusBar(MainWindow)
+        self.statusbar.setObjectName("statusbar")
+        MainWindow.setStatusBar(self.statusbar)
+
+        self.calculateButton.clicked.connect(self.__calculate)
+        self.clearButton.clicked.connect(self.__clear_fields)
+
+        self.calculate_differences = CalculateDifferences()
+
+        self.retranslateUi(MainWindow)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    def retranslateUi(self, MainWindow):
+        _translate = QtCore.QCoreApplication.translate
+        MainWindow.setWindowTitle(_translate("MainWindow", "Programação Dinamica"))
+        self.label_2.setText(_translate("MainWindow", "Formação da palavra"))
+        self.label_3.setText(_translate("MainWindow", "Ações para converter a palavra"))
+        self.label.setText(_translate("MainWindow", "Palavra"))
+        self.label_4.setText(_translate("MainWindow", "Palavra a ser convertida"))
+        self.calculateButton.setText(_translate("MainWindow", "Calcular"))
+        self.clearButton.setText(_translate("MainWindow", "Limpar campos"))
+
+    def __calculate(self):
+        self.__clear_list()
+
+        self.calculate_differences.set_word(self.wordTextBox.text())
+        self.calculate_differences.set_word_converted(self.wordConvertedTextBox.text())
+
+        self.calculate_differences.initialize()
+
+        self.calculate_differences.calculate()
+
+        word_formation_actions, word_formation = self.calculate_differences.print()
+
+        for action in word_formation_actions:
+            item = QtWidgets.QListWidgetItem(action)
+            self.wordFormationActionListWidget.addItem(item)
         
-        self.matrix = [[0 for i in range(self.word2_length + 1)] for j in range(self.word1_length + 1)]
+        for word in word_formation:
+            item = QtWidgets.QListWidgetItem(word)
+            self.wordFormationListWidget.addItem(item)
 
-        self.__initialize_matrix()
+    def __clear_fields(self):
+        self.wordTextBox.clear()
+        self.wordConvertedTextBox.clear()
 
-    def calculate(self):
-        for i in range(1, self.word1_length + 1): 
-            for j in range(1, self.word2_length + 1): 
+        self.__clear_list()
+        
+    
+    def __clear_list(self):
+        self.wordFormationListWidget.clear()
+        self.wordFormationActionListWidget.clear()
 
-                if self.word1[i - 1] == self.word2[j - 1]: 
-                    self.matrix[i][j] = self.matrix[i - 1][j - 1] 
-                else: 
-                    self.matrix[i][j] = 1 + min(self.matrix[i][j-1],
-                                                self.matrix[i-1][j],
-                                                self.matrix[i-1][j-1])
 
-    def print(self):
-        i = self.word1_length
-        j = self.word2_length
-
-        word_formation = []
-        word = ''
-
-        word_formation_actions = []
-
-        while(i >= 0 and j >= 0): 
-            if self.word1[i - 1] == self.word2[j - 1]: 
-                if len(word) != self.word2_length:
-                    word += self.word1[i - 1]
-                i -= 1
-                j -= 1
-            elif self.matrix[i][j] == self.matrix[i - 1][j - 1] + 1: 
-                word_formation_actions.append(f"Mudar o caracter '{self.word1[i - 1]}' para '{self.word2[j - 1]}' na posição {i}")
-                word += self.word2[j - 1]
-                j -= 1
-                i -= 1
-            elif self.matrix[i][j] == self.matrix[i - 1][j] + 1:
-                word_formation_actions.append(f"Remover o caracter '{self.word1[i - 1]}' na posição {i}") 
-                i -= 1
-            elif self.matrix[i][j] == self.matrix[i][j - 1] + 1: 
-                word += self.word2[j - 1]
-                word_formation_actions.append(f"Adicionar o caracter '{self.word2[j - 1]}'")
-                j -= 1
-
-            if i >= 0 and j >= 0:
-                word_formation.append(word[::-1])
-
-        print(word_formation_actions)
-        print(word_formation)
-
-    def __initialize_matrix(self):
-        for i in range(self.word1_length + 1): 
-            self.matrix[i][0] = i 
-        for j in range(self.word2_length + 1): 
-            self.matrix[0][j] = j 
-
-def main():
-    word1 = "sunday"
-    word2 = "saturday"
-
-    print(word1)
-    print(word2)
-
-    calculate = CalculateDifferences(word1, word2)
-    calculate.calculate()
-    calculate.print()
 
 if __name__ == "__main__":
-    main()
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.showMaximized()
+    sys.exit(app.exec_())
