@@ -38,7 +38,7 @@ class CalculateDifferences():
         word_formation_actions = []
 
         while(i >= 0 and j >= 0): 
-            if self.word_converted[i - 1] == self.word[j - 1]: 
+            if self.word_converted[i - 1] == self.word[j - 1]  or (i == 0 and j == 0): 
                 if len(word) != self.word_length:
                     word += self.word_converted[i - 1]
                 i -= 1
@@ -59,7 +59,7 @@ class CalculateDifferences():
             if i >= 0 and j >= 0:
                 word_formation.append(word[::-1])
 
-        return word_formation_actions, word_formation
+        return word_formation_actions, list(dict.fromkeys(word_formation))
 
     def __initialize_matrix(self):
         for i in range(self.word_converted_length + 1): 
