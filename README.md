@@ -13,7 +13,12 @@
 O projeto tem como objetivo utilizar o conceito de programação dinâmica, com o auxílio do algoritmo de Floyd Warshall, para gerar um algoritmo capaz de comparar palavras e demonstrar as mudanças necessárias para transformar uma ou mais palavras no padrão definido.
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+#### Tela inicial
+![initial_screen](images/initial_screen.png)
+#### Opções
+![options](images/options.png)
+#### Resultado
+![result](images/result.png)
 
 ## Instalação 
 **Linguagem**: Python<br>
